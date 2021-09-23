@@ -1,39 +1,53 @@
-.App {
-  text-align: center;
+p {
+	font-size: 16px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+	padding: 24px 0;
+	max-width: 90%;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.text-area {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 150px;
+	margin: 50px auto;
+	padding: 0 50px;
 }
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.notes-container {
+	width: 1000px;
+	min-height: 80vh;
+	display: flex;
+	margin: 0 auto;
 }
-
-.App-link {
-  color: rgb(112, 76, 182);
+.note {
+	margin: 1em;
+	padding: 24px;
+	background-color: rgb(189, 197, 197);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	background-color: #fff;
+	box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+		rgba(15, 15, 15, 0.1) 0px 2px 4px;
+	border-radius: 4px;
+	padding: 0.5rem 1rem;
+	font-size: 1.5rem;
+	margin: 0.5rem 0;
 }
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.column {
+	width: 25%;
+	height: auto;
+	background-color: #f3f3f3;
+	position: relative;
+	padding: 60px 1rem 0.5rem;
+}
+.column:nth-child(even) {
+	background-color: #e9e9e96b;
 }
