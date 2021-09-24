@@ -2,8 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
 import { Descendant } from 'slate'
 
-export type CustomElement = { type: 'paragraph'; children: CustomText[] }
-export type CustomText = { text: string }
 export type note = {
 	id: string
 	content: Descendant[]

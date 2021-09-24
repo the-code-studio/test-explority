@@ -10,7 +10,7 @@ import Box from '@mui/material/Box'
 
 interface textAreaProps {}
 
-const CreateNote: React.FC<textAreaProps> = () => {
+const CreateElement: React.FC<textAreaProps> = () => {
 	const initialValue: Descendant[] = [
 		{
 			type: 'paragraph',
@@ -55,4 +55,4 @@ const CreateNote: React.FC<textAreaProps> = () => {
 	)
 }
 
-export default CreateNote
+export default CreateElement

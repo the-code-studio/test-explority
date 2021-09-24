@@ -17,6 +17,10 @@ const Card: React.FC<noteProps> = ({ id, paragraphes }) => {
 	}) => {
 		const target = e.target
 		e.dataTransfer.setData('note_id', target.id)
+		e.target.classList.add('dragging')
+	}
+	const handleDragEnd = (e: any) => {
+		e.target.classList.remove('dragging')
 	}
 	const handleDragOver = (e: { stopPropagation: () => void }) => {
 		e.stopPropagation()
@@ -36,6 +40,7 @@ const Card: React.FC<noteProps> = ({ id, paragraphes }) => {
 			draggable="true"
 			onDragStart={handleDragStart}
 			onDragOver={handleDragOver}
+			onDragEnd={handleDragEnd}
 			onMouseLeave={handleEdite}
 		>
 			<div>
