@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppSelector } from '../../app/hooks'
-import Column from './Column'
+import Column from './ColumnContainer'
 import Card from './Card'
 import { selectNotes, note } from './notesSlice'
 
