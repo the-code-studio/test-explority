@@ -2,8 +2,8 @@ import React, { useState, useMemo } from 'react'
 import { createEditor, Descendant } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import { withHistory } from 'slate-history'
-import { editeNote } from './notesSlice'
-import { useAppDispatch } from '../../app/hooks'
+import { editeNote } from '../../store/notesSlice'
+import { useAppDispatch } from '../../store/hooks'
 
 interface noteProps {
 	id: string
