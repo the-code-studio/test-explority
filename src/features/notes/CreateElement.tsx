@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react'
-import { useAppDispatch } from '../../app/hooks'
-import { addNote } from './notesSlice'
 import { createEditor, Descendant } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import { withHistory } from 'slate-history'
+import { v4 as uuidv4 } from 'uuid'
+import { useAppDispatch } from '../../app/hooks'
+import { addNote } from './notesSlice'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
-import { v4 as uuidv4 } from 'uuid'
 
 interface textAreaProps {}
 
@@ -25,19 +25,12 @@ const CreateNote: React.FC<textAreaProps> = () => {
 	]
 	const editor = useMemo(() => withHistory(withReact(createEditor())), [])
 	const [value, setValue] = useState<Descendant[]>(initialValue)
-	const [message, setMessage] = useState('Enter some plain text...')
 	const dispatch = useAppDispatch()
 
 	const handleSubmit = () => {
-		const notEmpthy = value.filter((item: any) => item.children[0].text !== '')
-		if (notEmpthy.length > 0) {
-			const note = { id: uuidv4(), content: value }
-			dispatch(addNote(note))
-			setValue(emptyValue)
-			setMessage('Enter some plain text...')
-		} else {
-			setMessage('Please First enter some content here')
-		}
+		const note = { id: uuidv4(), content: value }
+		dispatch(addNote(note))
+		setValue(emptyValue)
 	}
 	return (
 		<div className="text-area">
@@ -52,7 +45,7 @@ const CreateNote: React.FC<textAreaProps> = () => {
 				}}
 			>
 				<Slate editor={editor} value={value} onChange={setValue}>
-					<Editable placeholder={message} />
+					<Editable placeholder="Enter some plain text..." />
 				</Slate>
 			</Box>
 			<Button variant="outlined" onClick={handleSubmit}>

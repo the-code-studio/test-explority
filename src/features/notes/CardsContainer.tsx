@@ -1,22 +1,18 @@
 import React from 'react'
 import { useAppSelector } from '../../app/hooks'
-import Column from './column'
-import Note from './noteCard'
+import Column from './Column'
+import Card from './Card'
 import { selectNotes, note } from './notesSlice'
 
 interface ShowNotesProps {}
 
-const ShowNotes: React.FC<ShowNotesProps> = () => {
+const CardsContainer: React.FC<ShowNotesProps> = () => {
 	const notes = useAppSelector(selectNotes)
 	return (
 		<div className="notes-container">
 			<Column id="column1">
 				{notes.map(({ id, content }: note) => {
-					const paragraphes = content.map((item: any, ind: number) => (
-						<p key={ind}>{item.children[0].text}</p>
-					))
-
-					return <Note key={id} id={id} paragraphes={paragraphes} />
+					return <Card key={id} id={id} paragraphes={content} />
 				})}
 			</Column>
 			<Column id="column2" />
@@ -26,4 +22,4 @@ const ShowNotes: React.FC<ShowNotesProps> = () => {
 	)
 }
 
-export default ShowNotes
+export default CardsContainer

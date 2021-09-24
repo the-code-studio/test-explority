@@ -8,9 +8,11 @@ export type note = {
 	id: string
 	content: Descendant[]
 }
+
 export interface NotesState {
 	notes: note[]
 }
+
 const initialState: NotesState = {
 	notes: [
 		{
@@ -31,8 +33,16 @@ export const notesSlice = createSlice({
 		addNote: (state, action: PayloadAction<note>) => {
 			state.notes.push(action.payload)
 		},
+		editeNote: (state, action: PayloadAction<note>) => {
+			const noteToEdite = state.notes.find(
+				(item: any) => item.id === action.payload.id
+			)
+			if (noteToEdite) {
+				noteToEdite.content = action.payload.content
+			}
+		},
 	},
 })
-export const { addNote } = notesSlice.actions
+export const { addNote, editeNote } = notesSlice.actions
 export const selectNotes = (state: RootState) => state.notes.notes
 export default notesSlice.reducer
